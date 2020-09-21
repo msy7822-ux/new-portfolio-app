@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     
     if @user.save
       # 保存が成功したときの処理
+      flash[:success] = 'Welcome to Circlindex Web site'
+      redirect_to user_url(@user)
     else
       render 'users/new'
     end
