@@ -55,11 +55,24 @@
 
 .home, .about, .signup {
   background: rgba(173,172,172,0.3);
-  padding-top: 2px;
+  padding-top: 4px;
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.home, .about {
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.create-account {
+  margin-top: 10px;
+}
+
 
 /* footer */
 
