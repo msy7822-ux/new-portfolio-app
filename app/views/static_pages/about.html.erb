@@ -1,2 +1,60 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<%= provide(:title, 'About') %>
+
+<div class="about">
+    <h3>About Circlindex</h3>
+    <p>CirclindexというWEBサービスについて</p>
+    
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              このWEBサービスの対象者 <b class="caret"></b>
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+              このWEBサービスは、2020年4月から晴れて大学生となった方を対象に作成したWEBサービスです。
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              このWEBサービスの概要 <b class="caret"></b>
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+              様々なサークルに参加している学生がサークルの様子（画像）やサークル名、活動内容、サークル公式のSNSリンクなどを投稿し、
+            　その投稿に対して新入生は興味が湧いたらそのサークルのSNSリンクに飛んだり「いいね」のような機能で、サークルに所属している投稿者はどんな新入生が自分のサークルに興味を持ってくれているか知ることができる。
+            　要するに、今までリアルでやっていたサークル紹介を完全オンラインで再現したWEBサービスになっています。
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              このWEBサービスを作成するに至った背景  <b class="caret"></b>
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+              2020年初頭から、世間が密集地を避けるようになり、その自粛期間に学生が学校にいけないという自体が発生してしまいました。
+              特に大学生（新入生）というと、遠くの県から遥々やってきて一人暮らしを始めることになったという方も少なくないでしょう。
+              そんなワクワクしながらも少し心細い新入生の大学生にとって入学早々学校に行けないというのはとてつもない苦しみがあったと思います。
+              心細いことに加えて新しい友達を作ったり、サークルや部活などの課外活動に積極的に参加して新しい人間関係を構築することができず憂鬱な毎日を過ごされていたと思います。
+              自分らのような2年生以上の学生はある程度の人間関係があるのでなかなか新入生の気持ちを理解するのは簡単ではないと思います。
+              そんな2020年4月入学の新入生に何かしら自分ができることはないだろうかと考えた結果、このサービスを作ることにしました。
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>

@@ -9,7 +9,45 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+ 
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#header {
+    background: rgba(222,220,220,0.3);
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: rgba(173,172,172,0.8);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+.items {
+  color: rgba(173,172,172,0.8);
+}
+
+.home, .about {
+  background: rgba(173,172,172,0.3);
+  padding-top: 2px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
