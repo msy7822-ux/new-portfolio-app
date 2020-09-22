@@ -42,6 +42,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails', '4.3.1'
 
+# ページネーションに関するgem
+# gem 'will_paginate', '3.1.6'
+# gem 'bootstrap-will_paginate', '1.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'

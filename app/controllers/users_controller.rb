@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   # ログインしていないユーザーがアクセスできないアクション
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   # アカウントが異なるユーザーがアクセスできないアクション（ログインは完了済み）
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   
   def index
@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  # ユーザー情報を削除するアクション
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:success] = "アカウントを削除しました"
+    redirect_to root_url
   end
   
   private
