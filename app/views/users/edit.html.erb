@@ -22,6 +22,8 @@
                 <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
                 
+                <%= f.file_field :picture %>
+                
                 <%= f.submit "Edit an Account", class: 'btn btn-primary edit-account' %>
             <% end %>
         </div>
