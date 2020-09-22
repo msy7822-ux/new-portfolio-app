@@ -6,4 +6,6 @@
 
 <% if @user.picture? %>
     <%= image_tag @user.picture.url %>
+<% else %>
+    <%= image_tag 'default.png' %>
 <% end %>
