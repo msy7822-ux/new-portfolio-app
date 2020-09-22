@@ -49,11 +49,21 @@
   font-weight: bold;
 }
 
+#not-login-logo {
+    float: left;
+    margin-right: 10px;
+    color: rgba(173,172,172,0.8);
+    text-transform: uppercase;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 23.8px;
+}
+
 .items {
   color: rgba(173,172,172,0.8);
 }
 
-.home, .about, .signup {
+.home, .about, .signup, .login {
   background: rgba(173,172,172,0.3);
   padding-top: 4px;
   padding-bottom: 30px;
@@ -69,8 +79,12 @@
   margin-bottom: 5px;
 }
 
-.create-account {
+.create-account, .login-account {
   margin-top: 10px;
+}
+
+.login-account {
+  margin-bottom: 10px;
 }
 
 

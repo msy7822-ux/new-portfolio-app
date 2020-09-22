@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     
     if @user.save
       # 保存が成功したときの処理
+      log_in(@user)  # ユーザー登録後にログインする
       flash[:success] = 'Welcome to Circlindex Web site'
       redirect_to user_url(@user)
     else
