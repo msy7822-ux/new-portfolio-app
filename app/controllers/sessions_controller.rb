@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # ユーザーログイン後にユーザー詳細ページにリダイレクトする
       log_in(user)
       flash[:success] = 'ログインしました'
-      redirect_to user_url(user)
+      redirect_back_or user_url(user)
     else
       # エラーメッセージを表示する
       flash.now[:danger] = 'メールアドレスまたは、パスワードが誤っています'
