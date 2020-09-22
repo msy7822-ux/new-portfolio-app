@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   
   def new
     @user = User.new
@@ -40,5 +42,23 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name, :email, :univ_name, :password, :password_confirmation, :picture)
+  end
+  
+  
+  # ログイン済みのユーザーかどうか確認
+  def logged_in_user
+    if logged_in? != true
+      flash[:danger] = "ログインしてください"
+      redirect_to login_url
+    end
+  end
+  
+  # 正しいユーザーかどうか確認
+  def correct_user
+    @user = User.find(params[:id])
+    if @user != current_user
+      flash[:danger] = "あなたのアカウントではありません"
+      redirect_to root_url
+    end 
   end
 end
