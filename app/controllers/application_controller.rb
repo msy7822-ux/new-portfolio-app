@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     
     # sessions helperの読み込み
-    protect_from_forgery eith: :exception
+    protect_from_forgery with: :exception
     include SessionsHelper
     
     def hello
