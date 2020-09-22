@@ -2,4 +2,8 @@
 
 <%= @user.name %>, <%= @user.email %>, <%= @user.univ_name %>
 
-<%= image_tag @user.picture.url if @user.picture? %>
+<br>
+
+<% if @user.picture? %>
+    <%= image_tag @user.picture.url %>
+<% end %>

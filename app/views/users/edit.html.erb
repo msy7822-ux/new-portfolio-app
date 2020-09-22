@@ -22,10 +22,19 @@
                 <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
                 
-                <%= f.file_field :picture %>
+                <%= f.file_field :picture , accept: 'image/jpeg, image/gif, image/png' %>
                 
                 <%= f.submit "Edit an Account", class: 'btn btn-primary edit-account' %>
             <% end %>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('#user_picture').bind('change', function() {
+        let size_in_megabytes = this.files[0].size/1024/1024;
+        if (size_in_megabytes > 5) {
+            alert('5メガバイト以上のサイズのファイルはアップロードできません。')
+        }
+    });
+</script>
