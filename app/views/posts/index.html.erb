@@ -1,0 +1,56 @@
+<!--エラーメッセージの表示-->
+<p>エラーメッセージの表示場所</p>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  新規投稿
+</button>
+
+<!--投稿の一覧をここに表示していく-->
+<div class="col-9" id="posts">
+    <%= render 'posts', posts: @posts %>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">新規投稿</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <%= form_for @post, remote: true do |f| %>
+      <div class="modal-body">
+        <div class="fomr-group">
+            
+            <%= render 'shared/post_errors' %>
+            
+            <%= f.label :circle_name %>
+            <%= f.text_field :circle_name, class: 'form-control' %>
+            
+            <%= f.label :univ_name %>
+            <%= f.text_field :univ_name, class: 'form-control' %>
+            
+            <%= f.label :content %>
+            <%= f.text_area :content, class: 'form-control' %>
+            
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <%= f.submit "投稿する", class: 'btn btn-primary' %>
+      </div>
+      
+      <% end %>
+      
+    </div>
+  </div>
+</div>

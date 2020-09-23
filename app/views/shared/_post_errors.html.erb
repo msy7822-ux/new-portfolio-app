@@ -1,0 +1,13 @@
+<% if @post.errors.any? %>
+    <div id="error_explanatio">
+        <div class="alert alert-danger">
+            The form contains <%= pluralize(@post.errors.count, 'error' ) %>
+        </div>
+        <p class="text-danger">※ 以下のメッセージに沿ってこのまま入力しなおしてください</p>
+        <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

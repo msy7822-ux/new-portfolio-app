@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+    # postモデルとの紐付け(一つのユーザーに対して複数のpostが生成されることが想定される)
+    # ユーザーが削除されたときにそのユーザーに紐づいた投稿を全て削除する
+    has_many :posts, dependent: :destroy
+    
     before_save { self.email = self.email.downcase }
     
     # 画像のアップローダー

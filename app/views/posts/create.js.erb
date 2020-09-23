@@ -1,0 +1,10 @@
+
+document.getElementById('post_circle_name').value = '';
+document.getElementById('post_univ_name').value = '';
+document.getElementById('post_content').value = '';
+
+<!--モーダルを隠す-->
+$('#exampleModal').modal('hide');
+
+document.getElementById("posts").innerHTML ="<%= escape_javascript(render 'posts', posts: @posts) %>";
+<!-- escape_javascriptを使えば、レロードせずともデータをひっぱてきて表示できるようになる-->
