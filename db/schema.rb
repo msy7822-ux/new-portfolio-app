@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_144623) do
+ActiveRecord::Schema.define(version: 2020_09_23_130804) do
 
   create_table "posts", force: :cascade do |t|
     t.string "circle_name"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2020_09_22_144623) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "picture"
+    t.string "twitter"
+    t.string "facebook"
+    t.string "instagram"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

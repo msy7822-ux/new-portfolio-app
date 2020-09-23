@@ -22,9 +22,18 @@
                 <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
                 
+                <%= f.label :twitter, "Twitter URL" %>
+                <%= f.text_field :twitter, class: 'form-control', placeholder: 'https://twitter.com/' %>
+                
+                <%= f.label :instagram, "Instagram URL" %>
+                <%= f.text_field :instagram, class: 'form-control', placeholder: 'https://www.instagram.com/' %>
+                
+                <%= f.label :facebook, "FaceBook URL" %>
+                <%= f.text_field :facebook, class: 'form-control', placeholder: 'https://ja-jp.facebook.com/' %>
+                
                 <%= f.label :picture , 'Images' %>
                 <%= f.file_field :picture , accept: 'image/jpeg, image/gif, image/png' %>
-                
+            
                 <%= f.submit "更新", class: 'btn btn-primary edit-account' %>
             <% end %>
         </div>
