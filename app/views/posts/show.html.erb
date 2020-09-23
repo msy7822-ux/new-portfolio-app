@@ -19,9 +19,16 @@
         活動内容：<%= @post.content %>
     </p>
     <p>
-        <span class="fab fa-2x fa-instagram"></span> 
-        <span class="fab fa-2x fa-twitter"></span> 
-        <span class="fab fa-2x fa-facebook-f"></span>
+        <a href="<%= @user.instagram %>">
+            <span class="fab fa-2x fa-instagram"></span> 
+        </a>
+        <a href="<%= @user.twitter %>">
+            <span class="fab fa-2x fa-twitter"></span> 
+        </a>
+        <a href="<%= @user.facebook %>">
+            <span class="fab fa-2x fa-facebook"></span> 
+        </a>
+
     </p>
     <br>
     
