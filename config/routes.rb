@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get '/search', to: 'posts#search'
-  post '/search', to: 'posts#searching'
+  # get '/search', to: 'posts#search'
+  # post '/search', to: 'posts#searching'
   
   get 'sessions/new'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   resources :users
-  resources :posts
+  resources :posts do 
+    resource :favorites, only: [:create, :destroy]
+  end
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

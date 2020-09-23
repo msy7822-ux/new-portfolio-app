@@ -12,10 +12,21 @@
           <p class="card-text">サークル名：<%= post.circle_name %></p>
           <p class="card-text">大学名：<%= post.univ_name %></p>
           <p class="card-text">活動内容：<%= num_of_words post.content %></p>
-          <br>
-          <span>いいね</span>
         </div>
-      </div>
     </a>
+    
+    <% if current_user.already_favorited?(post) %>
+      <%= link_to post_favorites_path(post), method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(post), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
+    
+    <%= post.favorites.count %>
+    </div>
+    
   <% end %>
 </div>

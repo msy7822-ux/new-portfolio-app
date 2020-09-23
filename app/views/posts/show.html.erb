@@ -18,7 +18,21 @@
     <p>
         活動内容：<%= @post.content %>
     </p>
-    <p>
+    
+    <% if current_user.already_favorited?(@post) %>
+      <%= link_to post_favorites_path(@post), method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(@post), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
+    <br>
+    <%= @post.favorites.count %>
+    <br>
+    
+    <p style="margin-top: 20px;">
         <a href="<%= @user.instagram %>">
             <span class="fab fa-2x fa-instagram"></span> 
         </a>
