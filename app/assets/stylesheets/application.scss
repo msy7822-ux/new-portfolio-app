@@ -15,22 +15,24 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// @import "font-awesome-sprockets"
+// @import "font-awesome";
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+// @mixin box_sizing {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
 
-// miscellaneous
+// // miscellaneous
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+// .debug_dump {
+//   clear: both;
+//   float: left;
+//   width: 100%;
+//   margin-top: 45px;
+//   @include box_sizing;
+// }
 
 
 // header 
@@ -72,6 +74,7 @@
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  border-radius: 5px;
 }
 
 .home, .about {
@@ -91,6 +94,12 @@
   width: 180px;
   height: 180px;
   background-color: #fff;
+}
+
+.user-list {
+  margin-right: 5px;
+  margin-left: 5px;
+  text-align: center;
 }
 
 //  form
@@ -122,6 +131,23 @@
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  border-radius: 5px;
+}
+
+//  投稿一覧ページの画像を少し丸くする
+.post-index-image {
+  border-radius: 5px;
+}
+
+//  投稿詳細ページ内の画像は他よりも少し大きくして表示する
+.post-show-image {
+  width: 300px;
+  height: 300px;
+}
+
+//  投稿詳細ページのレイアウトデザイン
+.post-show {
+  text-align: center;
 }
 
 .show-posts {

@@ -8,12 +8,11 @@
         <%= image_tag 'default.png', class: 'user-image' %>
     <% end %>
     
-    <br>
-    <br>
-    <%= @user.name %>, <%= @user.email %>, <%= @user.univ_name %>
-    <br>
-    <br>
-    
+    <div class="about-user">
+        <p style="margin-top: 20px;">ユーザー名：<%= @user.name %></p>
+        <p>大学名：<%= @user.univ_name %></p>
+        <p>メールアドレス：<%= @user.email%></p>
+    </div>
     
     <% if @user.posts != [] %>
         <br>
@@ -25,9 +24,9 @@
                     <a href="<%= post_path(post.id) %>">
                         <div class="card posts-index">
                           <% if post.image? %>
-                            <%= image_tag post.image.url %>
+                            <%= image_tag post.image.url, class: 'post-index-image' %>
                           <% else %>
-                            <%= image_tag 'no_image.png' %>
+                            <%= image_tag 'no_image.png', class: 'post-index-image' %>
                           <% end %>
 
                           <div class="card-body">
@@ -45,7 +44,7 @@
     
     <br>
     <% if current_user == @user %>
-        <%= link_to 'アカウントを削除する', user_url(@user), method: :delete, data: { confirm: "アカウントを削除しますがよろしいですか？" } %>
+        <%= link_to 'アカウントを削除する', user_url(@user), method: :delete, class: 'btn btn-danger',data: { confirm: "アカウントを削除しますがよろしいですか？" } %>
     <% end %>
     
 

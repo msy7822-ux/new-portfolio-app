@@ -46,6 +46,9 @@ gem 'jquery-rails', '4.3.1'
 # gem 'will_paginate', '3.1.6'
 # gem 'bootstrap-will_paginate', '1.0.0'
 
+# font-awesomeのgem
+gem 'font-awesome-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'

@@ -1,30 +1,30 @@
 <%= provide(:title, @post.circle_name) %>
 
-<% if @post.image? %>
-    <%= image_tag @post.image.url %>
-<% else %>
-    <%= image_tag 'no_image.png' %>
-<% end %>
 
-<br>
+<div class="post-show">
+    
+    <% if @post.image? %>
+        <%= image_tag @post.image.url, class: 'post-show-image' %>
+    <% else %>
+        <%= image_tag 'no_image.png', class: 'post-show-image' %>
+    <% end %>
+    
+    <p style="margin-top: 20px;">
+        サークル名：<%= @post.circle_name %> 
+    </p>
+    <p>
+        大学名：<%= @post.univ_name %>
+    </p>
+    <p>
+        活動内容：<%= @post.content %>
+    </p>
+    
+    <br>
+    
+    <% if current_user == @user %>
+      <%= link_to '削除する', post_url(@post), method: :delete, class: 'btn btn-primary' ,data: { confirm: "投稿を削除してもよろしいですか？" } %>
+    <% end %>
+    
+</div>
 
-
-<label>サークル名：</label>
-<%= @post.circle_name %>
-<br>
-
-<label>大学名：</label>
-<%= @post.univ_name %>
-<br>
-
-<label>活動内容：</label>
-<%= @post.content %>
-<br>
-
-<br>
-<br>
-
-<% if current_user == @user %>
-  <%= link_to '削除する', post_url(@post), method: :delete, class: 'btn btn-primary' ,data: { confirm: "投稿を削除してもよろしいですか？" } %>
-<% end %>
 

@@ -3,11 +3,11 @@
   <a href="<%= post_path(post.id) %>">
     <div class="card posts-index">
       <% if post.image? %>
-        <%= image_tag post.image.url %>
+        <%= image_tag post.image.url, class: 'post-index-image' %>
       <% else %>
-       <%= image_tag 'no_image.png' %>
+       <%= image_tag 'no_image.png', class: 'post-index-image' %>
       <% end %>
-        <div class="card-body">
+        <div class="card-body" style="border-top: 1px solid rgba(207,204,204,0.5); margin-top: 5px;">
           <h5 class="card-title">投稿者：<%= post.user.name %></h5>
           <p class="card-text">サークル名：<%= post.circle_name %></p>
           <p class="card-text">大学名：<%= post.univ_name %></p>

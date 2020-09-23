@@ -3,13 +3,17 @@
 
 <div class="index">
     <h3>All Users</h3>
-    <% @users.each do |user| %>
-        <li>
-            <%= link_to image_tag(user.picture.url), user_url(user)   %>
-            <%= link_to user.name, user_url(user) %>
-        </li>
+    <div class="flex">
         
-        <hr>
-    <% end %>
+        <% @users.each do |user| %>
+            <div class="user-list">
+                <%= link_to image_tag(user.picture.url, class: 'user-image'), user_url(user)  %>
+                <br>
+                <br>
+                <p>ユーザー名：<%= link_to user.name, user_url(user) %></p>
+            </div>
+        <% end %>
+    
+    </div>
 </div>
 
