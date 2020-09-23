@@ -2,11 +2,11 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  新規投稿
+  新規投稿する
 </button>
 
 <!--投稿の一覧をここに表示していく-->
-<div class="col-9" id="posts">
+<div class="col-9" id="posts" style="margin-top: 20px; display: flex;">
     <%= render 'posts', posts: @posts %>
 </div>
 
