@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :logged_in_user, only: [:index, :create, :destroy, :edit, :update]
+    before_action :logged_in_user, only: [:index, :show, :create, :destroy, :edit, :update]
     
     def index
         @posts = Post.all
@@ -18,9 +18,19 @@ class PostsController < ApplicationController
     end 
     
     def destroy
-    end 
+        @post = Post.find(params[:id])
+        @post.destroy
+        flash[:success] = "投稿を削除しました"
+        redirect_to user_url(@post.user)
+    end
     
-    def edit 
+    def show
+        @post = Post.find(params[:id])
+        @user = @post.user
+        @id = params[:id]
+    end
+    
+    def edit
     end
     
     def update

@@ -24,15 +24,17 @@
     <p>ユーザーの投稿一覧</p>
     <div class="show-posts">
         <% @user.posts.each do |post| %>
-            <div class="card posts-index">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-              <div class="card-body">
-                <h5 class="card-title">投稿者：<%= post.user.name %></h5>
-                <p class="card-text">サークル名：<%= post.circle_name %></p>
-                <p class="card-text">大学名：<%= post.univ_name %></p>
-                <p class="card-text">活動内容<%= simple_format post.content %></p>
-              </div>
-            </div>
+            <a href="<%= post_path(post.id) %>">
+                <div class="card posts-index">
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+                  <div class="card-body">
+                    <h5 class="card-title">投稿者：<%= post.user.name %></h5>
+                    <p class="card-text">サークル名：<%= post.circle_name %></p>
+                    <p class="card-text">大学名：<%= post.univ_name %></p>
+                    <p class="card-text">活動内容<%= simple_format post.content %></p>
+                  </div>
+                </div>
+            </a>
         <% end %>
     </div>
 <% end %>
