@@ -11,7 +11,7 @@
           <h5 class="card-title">投稿者：<%= post.user.name %></h5>
           <p class="card-text">サークル名：<%= post.circle_name %></p>
           <p class="card-text">大学名：<%= post.univ_name %></p>
-          <p class="card-text">活動内容<%= simple_format post.content %></p>
+          <p class="card-text">活動内容：<%= num_of_words post.content %></p>
           <br>
           <span>いいね</span>
         </div>

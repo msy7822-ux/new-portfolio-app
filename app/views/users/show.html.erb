@@ -1,49 +1,55 @@
 <%= provide(:title , @user.name) %>
 
-<% if @user.picture? %>
-    <%= image_tag @user.picture.url %>
-<% else %>
-    <%= image_tag 'default.png' %>
-<% end %>
-
-<br>
-
-<%= @user.name %>, <%= @user.email %>, <%= @user.univ_name %>
-
-
-
-<br>
-<br>
-<% if current_user == @user %>
-    <%= link_to 'アカウントを削除する', user_url(@user), method: :delete, data: { confirm: "アカウントを削除しますがよろしいですか？" } %>
-<% end %>
-
-<br>
-
-
-<% if @user.posts != [] %>
+<div class="user-show">
+    
+    <% if @user.picture? %>
+        <%= image_tag @user.picture.url, class: 'user-image' %>
+    <% else %>
+        <%= image_tag 'default.png', class: 'user-image' %>
+    <% end %>
+    
     <br>
-    <p>ユーザーの投稿一覧</p>
-    <div class="show-posts flex">
-        <% @user.posts.each do |post| %>
-            <a href="<%= post_path(post.id) %>">
-                <div class="card posts-index">
-                  <% if post.image? %>
-                    <%= image_tag post.image.url %>
-                  <% else %>
-                    <%= image_tag 'no_image.png' %>
-                  <% end %>
-            
-                  <div class="card-body">
-                    <h5 class="card-title">投稿者：<%= post.user.name %></h5>
-                    <p class="card-text">サークル名：<%= post.circle_name %></p>
-                    <p class="card-text">大学名：<%= post.univ_name %></p>
-                    <p class="card-text">活動内容<%= simple_format post.content %></p>
-                  </div>
-                </div>
-            </a>
-        <% end %>
-    </div>
-<% end %>
+    <br>
+    <%= @user.name %>, <%= @user.email %>, <%= @user.univ_name %>
+    <br>
+    <br>
+    
+    
+    <% if @user.posts != [] %>
+        <br>
+        <p>ユーザーの投稿一覧</p>
+        <hr>
+        <br>
+        <div class="show-posts flex">
+                <% @user.posts.each do |post| %>
+                    <a href="<%= post_path(post.id) %>">
+                        <div class="card posts-index">
+                          <% if post.image? %>
+                            <%= image_tag post.image.url %>
+                          <% else %>
+                            <%= image_tag 'no_image.png' %>
+                          <% end %>
+
+                          <div class="card-body">
+                            <h5 class="card-title">投稿者：<%= post.user.name %></h5>
+                            <p class="card-text">サークル名：<%= post.circle_name %></p>
+                            <p class="card-text">大学名：<%= post.univ_name %></p>
+                            <!--num_of_wirdsは活動内容を最初の10文字のみ表示するというヘルパーメソッド-->
+                            <p class="card-text">活動内容<%= num_of_words post.content %></p>
+                          </div>
+                        </div>
+                    </a>
+                <% end %>
+        </div>
+    <% end %>
+    
+    <br>
+    <% if current_user == @user %>
+        <%= link_to 'アカウントを削除する', user_url(@user), method: :delete, data: { confirm: "アカウントを削除しますがよろしいですか？" } %>
+    <% end %>
+    
+
+</div> 
+<!--div.user-show-->
 
 
