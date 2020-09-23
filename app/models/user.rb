@@ -2,6 +2,7 @@ class User < ApplicationRecord
     # postモデルとの紐付け(一つのユーザーに対して複数のpostが生成されることが想定される)
     # ユーザーが削除されたときにそのユーザーに紐づいた投稿を全て削除する
     has_many :posts, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     
     before_save { self.email = self.email.downcase }
     
@@ -20,6 +21,10 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
     
+        # すでに投稿にいいねが押されているかどうかを調べる
+    def already_favorited?(post)
+        self.favorites.exists?(post_id: post.id)
+    end
     
     private
     
@@ -28,5 +33,6 @@ class User < ApplicationRecord
            errors.add(:picture, 'サイズが５メガバイトを超えています') 
         end
     end
+    
     
 end

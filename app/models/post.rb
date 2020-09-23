@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   # Postのデフォルトの並び順を設定する
   default_scope -> { order( created_at: :desc ) }
   
