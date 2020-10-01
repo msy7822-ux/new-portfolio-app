@@ -1,1 +1,43 @@
-<%= @id %>
+<%= provide(:title, "Edit Post") %>
+
+
+<div class="edit">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h3>Edit Post</h3>
+            <%= form_for(@post) do |f| %>
+                
+                <!-- エラーメッセージの領域 -->
+                <% if @post.errors.any? %>
+                    <div id="error_explanatio">
+                        <div class="alert alert-danger">
+                            The form contains <%= pluralize(@post.errors.count, 'error' ) %>
+                        </div>
+                        <p class="text-danger">※ 以下のメッセージに沿ってこのまま入力しなおしてください</p>
+                        <ul>
+                            <% @post.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+                
+                <!-- フォーム部品 -->
+                <%= f.label :circle_name %>
+                <%= f.text_field :circle_name, class: 'form-control' %>
+                
+                <%= f.label :univ_name %>
+                <%= f.text_field :univ_name , class: 'form-control' %>
+                
+                <%= f.label :content %>
+                <%= f.text_area :content, class: 'form-control' %>
+                
+                <%= f.label :image , 'Images' %>
+                <%= f.file_field :image , accept: 'image/jpeg, image/gif, image/png' %>
+            
+                <%= f.submit "更新", class: 'btn btn-primary edit-account' %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
