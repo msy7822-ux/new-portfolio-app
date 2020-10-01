@@ -37,7 +37,7 @@
             <%= f.text_field :univ_name, class: 'form-control', placeholder: '例：△△大学  ※大学名は漢字を使ってください' %>
             
             <%= f.label :content %>
-            <%= f.text_area :content, class: 'form-control', placeholder: '例：主にボランティアを行っている' %>
+            <%= f.text_area :content, class: 'form-control', placeholder: '例：主にボランティアを行っている ※ 255文字以上入力できません' %>
             
             <%= f.label :image, 'Images' %>
             <%= f.file_field :image, accept: 'iamge/jpeg, image/gif, image/png' %>
