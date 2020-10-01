@@ -4,6 +4,9 @@
 <div class="post-show">
     <!-- カードの挿入 -->
     <div class="card">
+        <div class="card-header">
+            <h2 class="card-title" style="border-bottom: 1px solid #eee;"><%= @post.circle_name %></h2>
+        </div>
         <!-- image -->
         <% if @post.image? %>
             <%= image_tag @post.image.url, class: 'post-show-image' %>
@@ -11,9 +14,10 @@
             <%= image_tag 'no_image.png', class: 'post-show-image' %>
         <% end %>
         <div class="card-body">
-            <h5 class="card-title"><%= @post.circle_name %></h5>
-            <h6><%= @post.univ_name %></h6>
-            <p class="card-text"><%= @post.content %></p>
+            <h4><%= @post.univ_name %></h4>
+            <br>
+            <h5>- 主な活動内容 -</h5>
+            <p class="card-text" style="border: 1px solid #eee; width: 50%; padding:8px 12px;"><%= @post.content %></p>
         </div>
     </div>
     
