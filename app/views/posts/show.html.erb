@@ -51,6 +51,7 @@
     
     <% if current_user == @user %>
       <%= link_to '削除する', post_url(@post), method: :delete, class: 'btn btn-primary' ,data: { confirm: "投稿を削除してもよろしいですか？" } %>
+      <%= link_to '編集する', edit_post_path, class: 'btn btn-primary' %>
     <% end %>
     
 </div>

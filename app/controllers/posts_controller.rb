@@ -30,11 +30,20 @@ class PostsController < ApplicationController
         @id = params[:id]
     end
     
-    # def edit
-    # end
+    def edit
+        @post = Post.find(params[:id])
+    end
     
-    # def update
-    # end
+    def update
+        @post = Post.find(params[:id])
+        if @post.update_attributes(post_params)
+          # 更新に成功したときの処理
+          flash[:success] = '投稿内容を更新しました'
+          redirect_to post_url(@post)
+        else
+          render 'edit'
+        end
+    end
     
     
     private
