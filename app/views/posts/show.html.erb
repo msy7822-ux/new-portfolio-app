@@ -2,23 +2,22 @@
 
 
 <div class="post-show">
+    <!-- カードの挿入 -->
+    <div class="card">
+        <!-- image -->
+        <% if @post.image? %>
+            <%= image_tag @post.image.url, class: 'post-show-image' %>
+        <% else %>
+            <%= image_tag 'no_image.png', class: 'post-show-image' %>
+        <% end %>
+        <div class="card-body">
+            <h5 class="card-title"><%= @post.circle_name %></h5>
+            <h6><%= @post.univ_name %></h6>
+            <p class="card-text"><%= @post.content %></p>
+        </div>
+    </div>
     
-    <% if @post.image? %>
-        <%= image_tag @post.image.url, class: 'post-show-image' %>
-    <% else %>
-        <%= image_tag 'no_image.png', class: 'post-show-image' %>
-    <% end %>
-    
-    <p style="margin-top: 20px;">
-        サークル名：<%= @post.circle_name %> 
-    </p>
-    <p>
-        大学名：<%= @post.univ_name %>
-    </p>
-    <p>
-        活動内容：<%= @post.content %>
-    </p>
-    
+
     <% if current_user.already_favorited?(@post) %>
       <%= link_to post_favorites_path(@post), method: :delete do %>
         <i class="fas fa-heart"></i>
